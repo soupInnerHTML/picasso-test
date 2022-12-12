@@ -17,6 +17,7 @@ export default function () {
 
   const updateCompanies = useCallback(debounce(fetchCompanies, 400), [])
   function fetchCompanies(query) {
+    // using IIFE because this function used in useEffect hook
     (async () => {
       if (query) {
         const res = await fetch('https://autocomplete.clearbit.com/v1/companies/suggest?query=' + query)
